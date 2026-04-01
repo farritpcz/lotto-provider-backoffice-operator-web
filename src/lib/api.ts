@@ -58,3 +58,18 @@ export const operatorApi = {
   reportSummary: (p?: Record<string, unknown>) => api.get('/reports/summary', { params: p }),
   reportBets: (p?: Record<string, unknown>) => api.get('/reports/bets', { params: p }),
 }
+
+// Aliases สำหรับ shared pages จาก standalone-admin-web (#6)
+export const banMgmtApi = {
+  list: (p?: Record<string, unknown>) => api.get('/bans', { params: p }),
+  create: (d: Record<string, unknown>) => api.post('/bans', d),
+  delete: (id: number) => api.delete(`/bans/${id}`),
+}
+export const rateMgmtApi = {
+  list: (p?: Record<string, unknown>) => api.get('/rates', { params: p }),
+  update: (id: number, d: Record<string, unknown>) => api.put(`/rates/${id}`, d),
+}
+export const reportApi = {
+  summary: (p?: Record<string, unknown>) => api.get('/reports/summary', { params: p }),
+  profit: (p?: Record<string, unknown>) => api.get('/reports/bets', { params: p }),
+}
